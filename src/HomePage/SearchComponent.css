@@ -1,0 +1,31 @@
+/* SearchComponent.css */
+
+.search-container {
+    position: relative; /* Make the container position relative */
+    width: 100%; /* Set a width for the container */
+}
+
+.search-input {
+    width: 100%; /* Full width */
+    padding: 10px 40px 10px 10px; /* Adjust padding to make space for the icon */
+    border: 1px solid #ccc; /* Border for the input */
+    border-radius: 4px; /* Rounded corners */
+    outline: none; /* Remove outline */
+}
+
+.search-button {
+    position: absolute; /* Position the button absolutely */
+    right: 10px; /* Align it to the right */
+    top: 50%; /* Center it vertically */
+    transform: translateY(-50%); /* Adjust for perfect centering */
+    background: none; /* No background */
+    border: none; /* No border */
+    cursor: pointer; /* Pointer cursor */
+    padding: 5px; /* Optional: Add some padding */
+}
+
+.search-button svg {
+    width: 16px; /* Set width for the icon */
+    height: 16px; /* Set height for the icon */
+    fill: black; /* Icon color */
+}
