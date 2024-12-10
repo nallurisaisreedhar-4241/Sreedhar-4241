@@ -4,6 +4,14 @@
     gap: 30px; /* Space between date pickers */
   }
   
+
+  .date-picker-section{
+    margin:20px 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   /* Styling the DatePicker input */ /* Rounded corners */ /* Light gray border */
   .MuiInputBase-root {
     /* border-radius: 8px;
@@ -24,14 +32,4 @@
     color: #555; /* Darker color for label */
   }
   
-  /* Styles for the dropdown calendar icon *//* Change icon color */
-  /* .MuiSvgIcon-root {
-    color: #1976d2; 
-  } */
-  
-  /* Adjusting the calendar popover *//* Rounded corners for calendar */ /* Soft shadow */
-  .MuiPopover-paper {
-     border-radius: 8px;  
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
+ 

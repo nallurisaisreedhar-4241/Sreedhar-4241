@@ -66,8 +66,8 @@ export default function TemporaryDrawer() {
         onClose={toggleDrawer(false)}
         sx={{
           '& .MuiDrawer-paper': {
-            top: '70px', // Adjust this value based on your navbar height
-            height: 'calc(100% - 64px)', // Adjust this value based on your navbar height
+            top: '90px', // Adjust this value based on your navbar height
+            height: 'calc(97% - 64px)', // Adjust this value based on your navbar height
             width: '400px', // Increase the width of the drawer
           },
         }}
