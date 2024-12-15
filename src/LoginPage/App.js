@@ -121,17 +121,14 @@
 
 // export default App;
 
-
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, useNavigate, Link } from 'react-router-dom';
-// import './Login.css';
 import './App.css';
 import Alert from '@mui/material/Alert';
 import HomePage from '../HomePage/HomePage'; // Import your home page component
-import SignIn from '../SignIn/SignIn'; // Import your sign in component
+import SignIn from '../SignIn/SignIn'; // Import your sign-in component
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import axios from 'axios';
 
 function Login() {
   const [username, setUsername] = useState('');
@@ -146,10 +143,19 @@ function Login() {
   };
 
   const handleLogin = (event) => {
-    event.preventDefault(); 
-    if (username === 'nallurisaisreedhar' && password === 'NSSNGS745') {
-      setError(''); 
-      navigate('/home');
+    event.preventDefault();
+
+    // Retrieve users from localStorage
+    const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+
+    // Check if the username and password match any stored user
+    const userExists = storedUsers.some(
+      (user) => user.username === username && user.password === password
+    );
+
+    if (userExists) {
+      setError('');
+      navigate('/home'); // Navigate to the home page on successful login
     } else {
       setError('Invalid username or password!');
     }
@@ -157,7 +163,7 @@ function Login() {
 
   useEffect(() => {
     if (error) {
-      setError('');  
+      setError(''); // Clear error when username or password changes
     }
   }, [username, password]);
 

@@ -106,7 +106,6 @@
 import React, { useState } from 'react';
 import Alert from '@mui/material/Alert';
 import { useNavigate, Link } from 'react-router-dom';
-import axios from 'axios';
 import './SignIn.css';
 
 function SignIn() {
@@ -117,7 +116,7 @@ function SignIn() {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleSignUp = async (event) => {
+  const handleSignUp = (event) => {
     event.preventDefault();
 
     // Validate if any field is empty
@@ -132,16 +131,25 @@ function SignIn() {
       return;
     }
 
-    try {
-      const response = await axios.post('http://localhost:3000/signin', {
-        username: '',
-        email: '',
-        password: ''
-      });
-      console.log(response.data);
-    } catch (error) {
-      console.error('Signup error:', error);
-    }
+    // Prepare user data object
+    const newUser = { username, email, password };
+
+    // Retrieve existing users from local storage
+    const existingUsers = JSON.parse(localStorage.getItem('users')) || [];
+
+    // Add new user to the array
+    existingUsers.push(newUser);
+
+    // Save updated users array to local storage
+    localStorage.setItem('users', JSON.stringify(existingUsers));
+
+    // Clear the form fields and navigate to the login page
+    setUsername('');
+    setEmail('');
+    setPassword('');
+    setConfirmPassword('');
+    setError('');
+    navigate('/');
   };
 
   return (
